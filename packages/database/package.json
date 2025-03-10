@@ -1,0 +1,36 @@
+{
+  "name": "@repo/database",
+  "version": "0.0.0",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "scripts": {
+    "env:encrypt": "test -f .env && sops encrypt .env > .env.sops || exit 0",
+    "env:decrypt": "test -f .env.sops && sops decrypt --input-type dotenv --output-type dotenv .env.sops > .env || exit 0",
+    "analyze": "prisma generate --no-hints --schema=./prisma/schema.prisma",
+    "build": "prisma generate --no-hints --schema=./prisma/schema.prisma",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^0.10.4",
+    "@prisma/adapter-neon": "^6.3.1",
+    "@prisma/client": "6.3.1",
+    "@t3-oss/env-nextjs": "^0.12.0",
+    "server-only": "^0.0.1",
+    "undici": "^7.3.0",
+    "ws": "^8.18.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "22.13.4",
+    "@types/ws": "^8.5.14",
+    "bufferutil": "^4.0.9",
+    "prisma": "6.3.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+  }
+}

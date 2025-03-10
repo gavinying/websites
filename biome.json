@@ -1,0 +1,31 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "extends": ["ultracite"],
+  "javascript": {
+    "globals": ["Liveblocks"],
+    "formatter": {
+      "semicolons": "always"
+    }
+  },
+  "files": {
+    "ignore": [
+      "packages/database/generated/**",
+      "packages/design-system/components/ui/**",
+      "packages/design-system/lib/**",
+      "packages/design-system/hooks/**",
+      "packages/collaboration/config.ts",
+      "packages/cms/.content-collections/**",
+      "apps/docs/**/*.json",
+      "apps/email/.react-email/**",
+      "apps/web/.content-collections/**"
+    ]
+  },
+  "linter": {
+    "rules": {
+      "suspicious": {
+        "noDebugger": "off",
+        "noConsole": "off"
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "@repo/cms",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "content-collections build",
+    "build": "content-collections build",
+    "analyze": "content-collections build",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "dependencies": {
+    "@content-collections/mdx": "^0.2.1",
+    "@t3-oss/env-nextjs": "^0.12.0",
+    "fumadocs-core": "^15.0.8",
+    "react": "^19.0.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@content-collections/cli": "^0.1.6",
+    "@content-collections/core": "^0.8.1",
+    "@content-collections/next": "^0.2.5",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "22.13.4",
+    "@types/react": "19.0.9",
+    "@types/react-dom": "^19.0.4",
+    "next": "15.1.7"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "name": "websites",
+  "version": "3.2.26",
+  "bin": {
+    "websites": "dist/index.js"
+  },
+  "files": ["dist/index.js"],
+  "scripts": {
+    "env:encrypt": "turbo env:encrypt",
+    "env:decrypt": "turbo env:decrypt",
+    "build": "turbo build",
+    "dev": "turbo dev --filter=web",
+    "dev:app": "turbo dev --filter=app",
+    "dev:web": "turbo dev --filter=web",
+    "lint": "ultracite lint",
+    "format": "ultracite format",
+    "test": "turbo test",
+    "analyze": "turbo analyze",
+    "bump-deps": "npx npm-check-updates --deep -u -x react-day-picker,tailwindcss && pnpm install",
+    "bump-ui": "npx shadcn@latest add --all --overwrite -c packages/design-system",
+    "db:migrate-dev": "cd packages/database && npx prisma format && npx prisma generate && npx prisma migrate dev --skip-seed",
+    "db:migrate-deploy": "cd packages/database && npx prisma migrate deploy",
+    "db:seed": "cd packages/database && npx prisma db seed",
+    "db:reset": "cd packages/database && npx prisma migrate reset --skip-seed",
+    "stripe:listen": "stripe listen --forward-to localhost:3002/api/webhooks/stripe",
+    "clean": "git clean -xdf node_modules"
+  },
+  "devDependencies": {
+    "@auto-it/first-time-contributor": "^11.3.0",
+    "@biomejs/biome": "1.9.4",
+    "@repo/typescript-config": "workspace:*",
+    "@turbo/gen": "^2.4.2",
+    "@types/node": "^22.13.4",
+    "tsup": "^8.3.6",
+    "turbo": "^2.4.2",
+    "typescript": "^5.7.3",
+    "ultracite": "^4.1.20",
+    "vitest": "^3.0.5"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "pnpm@10.4.0",
+  "dependencies": {
+    "@clack/prompts": "^0.10.0",
+    "commander": "^13.1.0"
+  },
+  "type": "module"
+}
