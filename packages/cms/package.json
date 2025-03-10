@@ -21,7 +21,7 @@
     "@content-collections/core": "^0.8.1",
     "@content-collections/next": "^0.2.5",
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "22.13.4",
+    "@types/node": "22.13.10",
     "@types/react": "19.0.9",
     "@types/react-dom": "^19.0.4",
     "next": "15.1.7"
